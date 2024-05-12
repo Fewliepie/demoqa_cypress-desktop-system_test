@@ -1,0 +1,38 @@
+{
+  "name": "demoqa_cypress-desktop-system_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open:dev": "cypress open --config-file config-dev.js",
+    "cypress:run:dev": "cypress run --config-file config-dev.js",
+    "cypress:run:smoke:dev": "cypress run --env tags=@smoke --config-file config-dev.js",
+    "cypress:verify": "cypress verify",
+    "lint": "eslint \"./**/*.js\" --cache --cache-strategy content --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.6",
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.0.3",
+    "prettier-config-standard": "^7.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "[filepath].js",
+      "cypress/steps/**/*.js"
+    ],
+    "html": {
+      "enabled": true
+    },
+    "filterSpecs": true,
+    "omitFiltered": true
+  }
+}
