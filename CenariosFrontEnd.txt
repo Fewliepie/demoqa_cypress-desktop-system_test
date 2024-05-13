@@ -1,0 +1,71 @@
+#language:pt
+
+Funcionalidade: Pesquisa de produtos
+  Como um usuário qualquer
+  Quero acessar o Pesquisa de produtos
+  Para que eu possa pesquisar de produtos
+
+  #Teste de validação de dados
+  Cenario: Validar se os dados foram enviados corretamente
+    Dado que eu acesse o menu Practice Form
+    E preencho todos os campos com dados válidos
+    E clico para enviar o formulário
+    Quando recebo a modal confirmando a minha inscrição
+    Então os dados que submeti devem ser mostrados
+
+  #Testes de obrigatoriedade de campos
+  Cenario: Enviar formulário preenchendo todos os campos
+    Dado que eu acesse o menu Practice Form
+    Quando preencho todos os campos com dados válidos
+    E clico para enviar o formulário
+    Então devo receber uma modal confirmando a minha inscrição
+
+  Cenario: Enviar formulário preenchendo apenas campos obrigatórios
+    Dado que eu acesse o menu Practice Form
+    Quando preencho apenas os campos obrigatórios
+    E clico para enviar o formulário
+    Então devo receber uma modal confirmando a minha inscrição
+
+  Cenario: Enviar formulário preenchendo apenas campos não-obrigatórios
+    Dado que eu acesse o menu Practice Form
+    Quando preencho apenas os campos não-obrigatórios
+    E clico para enviar o formulário
+    Então o sistema não me permite fazer o envio do formlário, indicando a obrigatoriedade
+
+  #Testes de validação de formatos
+  Cenário: Preencher campo email com um dado no formato inválido #1
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o email
+    Quando preencho o email com um dado inválido, ex. 'nome@email'
+    Então deve ser apresentado um ícone de erro
+
+  Cenário: Preencher campo email com um dado no formato inválido #2
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o email
+    Quando preencho o email com um dado inválido, ex. '@email.com'
+    Então deve ser apresentado um ícone de erro
+
+  Cenário: Preencher campo email com um dado no formato inválido #3
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o email
+    Quando preencho o email com um dado inválido, ex. 'nome@.com'
+    Então deve ser apresentado um ícone de erro
+
+  Cenário: Preencher campo telefone com um dado no formato inválido #1
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o telefone
+    Quando preencho o telefone com um dado inválido, ex. '123456789'
+    Então deve ser apresentado um ícone de erro
+
+  Cenário: Preencher campo telefone com um dado no formato inválido #2
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o telefone
+    Quando preencho o telefone com um dado inválido, ex. 'abcdefg'
+    Então deve ser apresentado um ícone de erro
+
+  @bug
+  Cenário: Preencher campo data de nascimento com um dado no formato inválido #1
+    Dado que eu acesse o menu Practice Form
+    E preencha toodos os campos com dados válidos, exceto o telefone
+    Quando preencho a data de nascimento com uma data futura
+    Então deve ser apresentado um ícone de erro

@@ -1,0 +1,15 @@
+{
+  "firstName": "José",
+  "lastName": "Silva",
+  "email": "jose.silva@email.com",
+  "gender": "Male",
+  "mobileNumber": "119876543",
+  "birthDate": "1988-07-22",
+  "subject": "Biology",
+  "hobbies": [
+    "Reading"
+  ],
+  "address": "Rua das Flores 123, Bairro Jardim",
+  "state": "NCR",
+  "city": "Delhi"
+}
